@@ -8,7 +8,7 @@ A start-from-zero playbook for one person who wants to build websites with AI an
 
 ## What's inside
 
-Nine written chapters, plus the full map of the twenty-four planned.
+Twenty-eight written chapters, plus four reference pieces.
 
 | # | Chapter | Part |
 |---|---|---|
