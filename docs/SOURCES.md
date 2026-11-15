@@ -10,7 +10,7 @@ A document's date is when an idea was recorded, not when it started.
 
 | File | Original | Date written | Copied | What it is |
 | --- | --- | --- | --- | --- |
-| [website-build-standard-and-checklist.md](../sources/build-standard/website-build-standard-and-checklist.md) | Google Doc "BlackFox Studios Website Build Standard and Checklist" (Drive id 1V5vzPKHiSivaupSzS1teWeOL_e6EbS9qFcOnnY99-ZQ), BlackFox Studios shared drive, Website folder | 2026-11-11 (Version 1.0) | 2026-11-15 | The legal, privacy and licensing standard for client sites: intake questions, AI builder instructions, rights and releases, accessibility, privacy and tracking, email, fundraising disclosures, security, launch gate, upkeep and the Evidence Folder. Sits under the [twenty-point checklist in Module 11](../mod-11.html). |
+| [website-build-standard-and-checklist.md](../sources/build-standard/website-build-standard-and-checklist.md) | Google Doc "BlackFox Studios Website Build Standard and Checklist" (Drive id 1V5vzPKHiSivaupSzS1teWeOL_e6EbS9qFcOnnY99-ZQ), BlackFox Studios shared drive, Website folder | 2026-11-11 (Version 1.0); updated 2026-11-15 (Version 1.1) | 2026-11-15 (Version 1.1) | The legal, privacy and licensing standard for client sites: intake questions, AI builder instructions, rights and releases, accessibility, privacy and tracking, email, fundraising disclosures, security, launch gate, upkeep, the quarterly QA check (read-only, a person approves every fix), the change log (a Google Sheet is the record, GitHub commits mirror code changes) and the Evidence Folder. Sits under the [twenty-point checklist in Module 11](../mod-11.html). |
 
 ## Adding a source
 

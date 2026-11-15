@@ -4,13 +4,13 @@
 | --- | --- |
 | Source | Google Doc "BlackFox Studios Website Build Standard and Checklist", BlackFox Studios shared drive, Website folder |
 | Drive doc id | 1V5vzPKHiSivaupSzS1teWeOL_e6EbS9qFcOnnY99-ZQ (opens only for people the Doc is shared with) |
-| Date written in the Doc | November 11, 2026 (Version 1.0) |
-| Drive dates | Created 2026-11-11, last modified 2026-11-11 |
-| Copied | 2026-11-15 by Claude. The Doc's text was read through the Google Docs API and checked line by line against the November 11 markdown draft the Doc was made from. The words match; this file keeps the draft's markdown formatting (numbered lists, the Part 0 block and the Evidence Folder layout as code blocks). |
+| Date written in the Doc | November 11, 2026 (Version 1.0); updated November 15, 2026 (Version 1.1) |
+| Drive dates | Created 2026-11-11, last modified 2026-11-15 |
+| Copied | 2026-11-15 by Claude. Version 1.0 was read through the Google Docs API and checked line by line against the November 11 markdown draft the Doc was made from. Version 1.1 (same day) adds 8.4 Quarterly QA check and 8.5 Change log, adds folder 15 to the Evidence Folder, and adds cross-references in the 8.3 table; those changes were made in the Doc first and read back before this copy. This file keeps markdown formatting (numbered lists, the Part 0 block and the Evidence Folder layout as code blocks). |
 
 **The Doc is the record. This file is a mirror.** Edit the Google Doc, then copy it here again and update the date above. Never edit only this file.
 
-**What it is:** The BlackFox Studios standard for building a client website. Intake questions that turn sections on or off, instructions to paste into an AI site builder, and pass or fail checks on rights and releases (photos, music, people's likeness, AI-made media), accessibility, privacy and tracking, email lists, donations, security and the domain, plus the launch gate, upkeep, the Evidence Folder and the sources behind each rule.
+**What it is:** The BlackFox Studios standard for building a client website. Intake questions that turn sections on or off, instructions to paste into an AI site builder, and pass or fail checks on rights and releases (photos, music, people's likeness, AI-made media), accessibility, privacy and tracking, email lists, donations, security and the domain, plus the launch gate, upkeep, the quarterly QA check, the change log, the Evidence Folder and the sources behind each rule.
 
 **Why it is here:** It is the legal, privacy and licensing layer under this playbook's own [twenty-point pre-launch checklist](../../mod-11.html). Module 11 covers phone, speed, search basics and the common accessibility checks; this standard covers what a site needs before it is safe to hand to a client. Keeping its text in the repo lets any person or AI read it without the Doc being re-sent.
 
@@ -20,7 +20,7 @@ A document's date is when an idea was recorded, not when it started.
 
 ---
 
-Version 1.0 | Owner: BlackFox Studios | Written: November 11, 2026 | Review: every 6 months, and whenever a law below changes
+Version 1.1 | Owner: BlackFox Studios | Written: November 11, 2026 | Updated: November 15, 2026 (added 8.4 Quarterly QA check and 8.5 Change log) | Review: every 6 months, and whenever a law below changes
 
 This is not legal advice. It is a build standard. Items marked LAWYER need a lawyer's review before you rely on them for a specific client.
 
@@ -426,12 +426,73 @@ Run in this order:
 
 | When | What |
 |---|---|
-| Each content change | Rights Log row; alt text; caption check |
-| Quarterly | Backup; tag check; form test |
+| Each content change | Change log row (8.5); Rights Log row; alt text; caption check |
+| Quarterly | QA check (8.4), which includes the tag check; backup; form test |
 | Every 12 months | Accessibility re-test and statement date; policy review; launch captures refreshed |
 | Every 3 years | DMCA agent renewal (if 2.7 on) |
 | Domain renewal date | Confirm auto-renew and registrant |
 | When a law here changes | Update this standard and re-check affected sites |
+
+### 8.4 Quarterly QA check (MUST)
+
+- What it is: every quarter, a monitor runs a fixed set of checks on the live site and writes a dated report. The monitor only reads the site. It does not edit pages, settings, accounts, or content, and it is not given an admin login.
+- When: in the first two weeks of January, April, July, and October, for every active site, starting with the first quarter after launch. It runs alongside the quarterly backup and form test in 8.3.
+- Who: the person named in the support agreement runs it (BlackFox Studios, or client staff). The client, or the BlackFox lead under a support agreement, approves any fix.
+- The monitor can be a person working down the list, or a script or AI agent run on a schedule. The rule is the same either way: it reports, and a person decides.
+
+The checks:
+- Accessibility scan: run axe (browser extension or axe-core command line) or Pa11y on every page. Pass when there are 0 errors and any new warnings have been reviewed. Save the export. This repeats the automated part of 3.1 to 3.8; the yearly manual tests in 3.8 still apply.
+- Trackers and pixels against consent: load every page with the browser's developer tools on the Network tab, or with a script that lists every third-party domain each page loads. Compare that list with the privacy policy and any signed client sign-off. Pass when every third-party domain is named in the privacy policy (4.1), none is an ad pixel, session-replay tool, or chat widget without written sign-off (4.2 and Exceptions), and nothing third-party loads on a page with health fields (4.3). Tags get added after launch by staff, embedded tools, and platform updates, so a site that passed at launch can fail later without anyone noticing.
+- Uptime: a free uptime monitor checks the home page every 5 minutes all quarter and emails the client's admin address when the site is down. The quarterly report reads its record. Pass when uptime is 99.5% or better and every outage longer than 15 minutes has a note on the cause.
+- SSL certificate and domain: check the certificate's expiry date (click the padlock in the browser, or use openssl from the command line) and the domain renewal date at the registrar. Pass when the certificate is valid for 30 or more days or the platform renews it automatically, and domain auto-renew is on (2.8, Part 7).
+- Broken links: run a link checker across the whole site (for example the W3C Link Checker or linkchecker). Pass when no internal link is broken. Broken links to other sites go on the report for a person to fix or remove.
+- Speed and search: run Lighthouse in mobile mode on the home page and the two most visited pages. Record the Performance, Accessibility, Best Practices, and SEO scores. Lighthouse scores move from run to run, so run it three times and record the middle score. Pass when SEO is 90 or higher and no score has dropped more than 10 points since the last quarter.
+- Laws that change: a person, not the monitor, checks whether any law in this standard changed since the last quarter. At minimum: the Washington My Health My Data Act (4.3), the Washington email law (5.1), the COPPA rule (4.5), the Title II and Section 504 deadlines (3.9), and whether Washington passed a general privacy law (4.1). Use the source links in this standard and the Washington Legislature's bill pages. Pass when each one is marked "no change" with the date, or the change is logged. If a law changed, update this standard first (the "When a law here changes" row in 8.3), then re-check the sites it affects.
+
+Each quarter, in this order:
+1. Run the checks. Save one dated report per site: the date, who or what ran it, each check, pass or fail, and the evidence (exports and screenshots).
+2. Save the report in the Evidence Folder (Part 9, folder 15). Add one change log row (8.5) for each fail, with status "Proposed."
+3. The approver reads the report within 10 business days and marks each fail: fix, accept with a written reason, or not an issue.
+4. A person makes each approved fix, or directs an AI to make it, and completes the change log row: who, what, approved by, and a link to the evidence.
+5. The next quarter's report rechecks every item that failed last time.
+
+Rules:
+- The monitor never fixes anything on its own, even a typo or a broken link. A fix made without a person's approval has no one accountable for it and no record of why, and it can undo a release, a consent setting, or an accessibility fix without anyone knowing.
+- Check: the last QA report is dated within the last 3 months, and every fail in it has a change log row.
+
+### 8.5 Change log (MUST)
+
+- Every change to the live site gets one row in the change log: page text, images, layout, menus, embeds, forms, settings, policy pages, account access, domain, and DNS. This includes fixes from the QA check (8.4) and changes client staff make themselves.
+- Where it lives: a Google Sheet named "[Client] Website Change Log" in the site's Evidence Folder, owned by the client's account (the same account that owns the domain in 2.8). BlackFox Studios and builders get edit access, not ownership. Google Sheets keeps version history, and each cell's edit history shows who changed it and when.
+- Each client gets a new sheet made from the column list below.
+
+Columns, in this order:
+1. Change ID (CL-0001, CL-0002, and so on).
+2. Date made.
+3. Made by (the person, or the AI tool and the person who ran it).
+4. Page or area.
+5. What changed (before and after, in plain words).
+6. Why (client request, QA finding, takedown or correction, law change).
+7. Requested by.
+8. Approved by.
+9. Date approved.
+10. Standard sections touched (for example 2.1, 4.2).
+11. Evidence link (page capture, export, or commit).
+12. Status (Proposed, Approved, Done, Rolled back).
+
+Rules:
+- Write the row when the change is made, not later from memory.
+- A change that touches a MUST item is not made until its row has an Approved by name.
+- Never delete a row. A mistake gets a new row that corrects it and names the Change ID it corrects.
+- Major changes also get a dated full-page capture (2.9).
+
+When the site's code is in GitHub:
+- The sheet is the record. GitHub commits are a mirror for code changes.
+- Each code change is also a commit. The commit message starts with the Change ID (for example "CL-0042: raise footer text contrast"), and the commit link goes in the Evidence link column.
+- Why keep GitHub too: a commit records the exact lines that changed without anyone typing them up, and its history is hard to change without it showing. That makes it the better proof of what the code was on a given day.
+- Why the sheet stays the record: the client owns it in their own account; staff who do not use GitHub can read it and add to it; and it covers changes no commit sees, such as Google Sites edits, settings, account access, and DNS. A Google Sites build has no commits, so the sheet is its only log.
+- The repository sits under a GitHub account or organization the client owns, not a developer's personal account, for the same reason as the domain (2.8).
+- Check: pick three changes made since the last QA report. Each has a row with an Approved by name and a working evidence link, and each code change has a matching commit.
 
 ---
 
@@ -453,6 +514,7 @@ Run in this order:
   12 Launch and change captures
   13 Claims, takedowns, and correspondence log
   14 Signed launch sheet and handoff
+  15 Change log (sheet) and quarterly QA reports
 ```
 
 ---
