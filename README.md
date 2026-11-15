@@ -40,6 +40,10 @@ Most owners are roughly 70% Technician, and that imbalance is why most small bus
 
 **It is written to a measured reading level.** Every chapter is held to a Gunning Fog index between 8.5 and 9.5, roughly a high-school freshman. That is checked with a script before anything ships, and the score is printed on each chapter.
 
+## Sources
+
+The documents behind the playbook are kept as text in [`sources/`](sources/) and listed in the [source register](docs/SOURCES.md). The legal, privacy and licensing items for a client site live in the [Website Build Standard and Checklist](sources/build-standard/website-build-standard-and-checklist.md), which sits under Module 11's twenty-point list. The Google Doc is the record; the repo copy is a mirror. Contributors and AI start with [AGENTS.md](AGENTS.md).
+
 ## Running it locally
 
 Every page is a single self-contained HTML file. There is no build step, no database, and no server code.
